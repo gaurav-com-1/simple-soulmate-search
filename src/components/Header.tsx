@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Heart, Menu, X, User, Search, MessageSquare } from 'lucide-react';
+import { Heart, Menu, X, User, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Search Profiles', href: '/search' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Success Stories', href: '/success-stories' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
@@ -24,8 +24,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-rose-400 to-pink-500 p-2 rounded-lg">
-              <Heart className="h-6 w-6 text-white" />
+            <div className="bg-gradient-to-r from-rose-400 to-pink-500 p-2 rounded-xl shadow-lg">
+              <Heart className="h-6 w-6 text-white" fill="currentColor" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">
               SoulMate
@@ -50,13 +50,13 @@ const Header = () => {
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="hover:bg-rose-50 hover:border-rose-200">
                 <User className="h-4 w-4 mr-2" />
                 Login
               </Button>
             </Link>
             <Link to="/register">
-              <Button size="sm" className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700">
+              <Button size="sm" className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 shadow-lg">
                 Join Free
               </Button>
             </Link>
@@ -64,7 +64,7 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -93,13 +93,13 @@ const Header = () => {
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
                 <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full hover:bg-rose-50">
                     <User className="h-4 w-4 mr-2" />
                     Login
                   </Button>
                 </Link>
                 <Link to="/register" onClick={() => setIsMenuOpen(false)}>
-                  <Button size="sm" className="w-full bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700">
+                  <Button size="sm" className="w-full bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 shadow-lg">
                     Join Free
                   </Button>
                 </Link>
